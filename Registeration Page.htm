@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registeration Page</title>
+	<link rel="icon" href="book.png" type="image/gif" sizes="16x16">
+	<style>
+	.col-1 {width: 8.33%;}
+	.col-2 {width: 16.66%;}
+	.col-3 {width: 25%;}
+	.col-4 {width: 33.33%;}
+	.col-5 {width: 41.66%;}
+	.col-6 {width: 50%;}
+	.col-7 {width: 58.33%;}
+	.col-8 {width: 66.66%;}
+	.col-9 {width: 75%;}
+	.col-10 {width: 83.33%;}
+	.col-11 {width: 91.66%;}
+	.col-12 {width: 100%;}
+	@media only screen and (max-width: 800px) {
+	  [class*="col-"] {
+	    width: 100%;
+	  }
+	}
+	.row::after {
+	  content: "";
+	  clear: both;
+	  display: block;
+	}
+	[class*="col-"] {
+	  float: left;
+	}
+	p,h1,h2,h3{
+	  font-size:125%;
+	}
+	label{
+	  text-align:30px;
+	  font-weight:200%;
+	  font-size:125%;
+	}
+	body{
+	  background:#cc6600 url("library0.jpg");
+	  background-size: cover;
+	}
+	form{
+	  text-align:center;
+	  background:#cc8800;
+	  border-radius: 7px;
+	}
+	#submit{
+	  font-size:150%;
+	  background-color:#0066ff;
+	  height:60px;
+	  width:100%;
+	  border: 3px solid #0066ff;
+	  border-radius: 7px;
+	}
+	input{
+	  height:30px;
+	  width:275px;
+	}
+	#message{
+	  display:none;
+	  background: #f1f1f1;
+	  color: #000;
+	  text-align: left;
+
+	  margin-top: 10px;
+	  padding: 20px;
+	}
+	#register{
+	  color:white;
+	}
+	#male, #female{
+	  
+	}
+	.valid {
+	  color: green;
+	}
+	.valid:before {
+	  position: relative;
+	  left: -10px;
+	  content: "/";
+	}
+	.invalid {
+	  color: red;
+	}
+	.invalid:before {
+	  position: relative;
+	  left: -10px;
+	  content: "x";
+	}
+	</style>
+</head>
+<body>
+	<div id="register">
+	<h1 style="font-size:200%;">Welcome!</h1>
+	<p>Welcome to our new library, here we will present to you an ample collection of books to check out, hoping you find the kind of book you would like. But before we go further, we simply request you to sign up on our site.</p>
+	</div>
+	<hr>
+	<div class="row">
+	   <form action="welcome page.htm" class="col-7">
+		<label for="fname">First Name:</label><br>
+		<input type="text" placeholder="Enter Your Name" name="fname" pattern="(?=.*[A-Z])(?=.*[a-z]).{3,}" title="Please enter a proper name" required><br><br>
+		<label for="lname">Last Name:</label><br>
+		<input type="text" placeholder="Enter Your Last name" name="lname" pattern="(?=.*[A-Z])(?=.*[a-z]).{3,}" title="Please enter a proper name" required><br><br>
+		<label for="email">E-Mail:</label><br>
+		<input type="email" placeholder="Enter Your E-mail" name="email" required><br><br>
+		<label for="phone">Phone Number:</label><br>
+		<input type="tel" placeholder="Enter Your Phone Number" name="phone" pattern=".{11}" required><br><br>
+		<label for="add">Address:</label><br>
+		<input type="text" placeholder="Enter Your Address" name="add" required><br><br>
+		<label for="pass">Password:</label><br>
+		<input type="password" id="pass" name="pass" placeholder="Enter a Password" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[!@#\$%\^&\*]).{8}" required><br><br>
+		<h3>Gender:</h3>
+		<label for="male">Male</label>
+		<input type="radio" id="male" name="gender" value="male" required>
+		<label for="female">Female</label>
+		<input type="radio" id="female" name="gender" value="female" required><br><br>
+		<input type="submit" value="Submit" id="submit">
+	   </form>
+	
+
+	<div id="message" class="col-4">
+	  <h3>Password Requirements:</h3>
+	  <p id="capital" class="invalid">Start with an uppercase letter</p>
+	  <p id="number" class="invalid">Contain at least 1 digit</p>
+	  <p id="special" class="invalid">Contain at least 1 special character, ex. # % _ *</p>
+	  <p id="space" class="valid">Doesn't contain white space</p>
+	  <p id="length" class="invalid">Must be exactly 8 characters</p>
+	</div>
+	</div>
+
+	<script>
+		var myInput = document.getElementById("pass");
+		var capital = document.getElementById("capital");
+		var number = document.getElementById("number");
+		var space = document.getElementById("space");
+		var special= document.getElementById("special");
+		var length = document.getElementById("length");
+		myInput.onfocus = function() {
+		  document.getElementById("message").style.display = "block";
+		}
+		myInput.onblur = function() {
+		  document.getElementById("message").style.display = "none";
+		}
+		myInput.onkeyup= function(){
+		  var uppercase= /^[A-Z]\w/;
+		  if(myInput.value.match(uppercase)){
+		    capital.classList.remove("invalid");
+		    capital.classList.add("valid");
+		  } else {
+		    capital.classList.remove("valid");
+		    capital.classList.add("invalid");
+		  }
+		  var numbers = /[0-9]/g;
+		  if(myInput.value.match(numbers)) {  
+		    number.classList.remove("invalid");
+		    number.classList.add("valid");
+	  	  } else {
+		    number.classList.remove("valid");
+		    number.classList.add("invalid");
+  		  }
+		  var specialchars = /[!@#\$%\^&\*]/g;
+		  if(myInput.value.match(specialchars)){
+		    special.classList.remove("invalid");
+		    special.classList.add("valid");
+		  } else {
+		    special.classList.remove("valid");
+		    special.classList.add("invalid");
+		  }
+		  var spaces = /\s/g;
+		  if(myInput.value.match(spaces)){
+		    space.classList.remove("valid");
+		    space.classList.add("invalid");
+		  } else {
+		    space.classList.remove("invalid");
+		    space.classList.add("valid");
+		  }
+		  if(myInput.value.length == 8) {
+		    length.classList.remove("invalid");
+		    length.classList.add("valid");
+		  } else {
+		    length.classList.remove("valid");
+		    length.classList.add("invalid");
+		  }
+		}
+	</script>
+</body>
+</html>
