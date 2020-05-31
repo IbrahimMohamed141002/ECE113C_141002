@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome!</title>
+	<link rel="icon" href="book.png" type="image/gif" sizes="16x16">
+	<style>
+	body{
+	 background:url("library1.jpg");
+	 background-repeat: no-repeat;
+	 background-size: cover;
+	}
+	h1,p,li{
+	font-size:150%;
+	color:white;
+	}
+	#bookshelf{
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+	</style>
+</head>
+<body>
+	<h1>Thanks for filling the form, you can now access our library!</h1>
+	<p>Welcome! In this library, we have a big collection of books for you to choose from. This bookshelf has some book samples you might be interested in, here we have:</p>
+	<ul>
+	  <li style="color:#ff1a1a;">Novels on the left shelf</li>
+	  <li style="color:#0066ff;">Historical books on the middle shelf</li>
+	  <li style="color:lime;">Sceintific books on the right shelf</li>
+	</ul>
+	<img src="bookshelf.jpg" id="bookshelf" alt="Bookshelf" usemap="#shelfmap" width="600" height="400">
+	<map name="shelfmap">
+	  <area shape="rect" coords="0,0,160,400" alt="Novels" href="novels.htm" target="_blank">
+	  <area shape="rect" coords="165,0,410,400" alt="History Books" href="history.htm" target="_blank">
+	  <area shape="rect" coords="420,0,600,400" alt="Science Books" href="science.htm" target="_blank">
+
+	</map>
+
+</body>
+</html>
